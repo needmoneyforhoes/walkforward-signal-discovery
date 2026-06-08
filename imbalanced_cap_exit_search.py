@@ -12,12 +12,12 @@ Keep Y-side positions and any post-checkpoint fires normally.
 Compare to baseline + sc6 alone + sc6e30. Must validate on TRAIN/TEST split.
 """
 import json, sys, os, statistics
-sys.path.insert(0, '/home/polybot/polymarket-bot')
-os.chdir('/home/polybot/polymarket-bot/data')
+sys.path.insert(0, '.')
+os.chdir('./data')
 
 DEPLOY_TS = 1778785939
 all_recaps = {}
-with open('/home/polybot/polymarket-bot/data/market_recap_history.jsonl') as f:
+with open('./data/market_recap_history.jsonl') as f:
     for line in f:
         try:
             d = json.loads(line)
@@ -30,7 +30,7 @@ tick_data = {}
 print("Loading ticks...", file=sys.stderr)
 import time
 t0 = time.time()
-with open('/home/polybot/polymarket-bot/data/market_history.jsonl') as f:
+with open('./data/market_history.jsonl') as f:
     for line in f:
         if len(tick_data) >= len(slugs_needed): break
         try:

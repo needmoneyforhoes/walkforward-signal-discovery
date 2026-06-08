@@ -7,8 +7,8 @@ for offline statistical validation.
 import json, math
 from collections import defaultdict
 
-HISTORY = "/home/polybot/polymarket-bot/data/market_history.jsonl"
-RECAP   = "/home/polybot/polymarket-bot/data/market_recap_history.jsonl"
+HISTORY = "./data/market_history.jsonl"
+RECAP   = "./data/market_recap_history.jsonl"
 
 def g_bn200(sc): 
     v = sc.get("T-200", {}).get("bn_delta")
@@ -117,7 +117,7 @@ out = {
         "S2_up": sum(1 for r in all_gate_fired if r["gate_type"]=="S2_or_DEP" and r["winner"]=="UP"),
     }
 }
-with open("/home/polybot/s1only_results.json", "w") as f:
+with open("~/s1only_results.json", "w") as f:
     json.dump(out, f, indent=2)
-print(f"\nSaved to /home/polybot/s1only_results.json")
+print(f"\nSaved to ~/s1only_results.json")
 print("Upload this file back to Claude for full statistical analysis.")

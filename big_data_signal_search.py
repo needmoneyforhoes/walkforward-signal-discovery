@@ -20,8 +20,8 @@ E. Combined policies
 """
 
 import json, sys, os, statistics, math
-sys.path.insert(0, '/home/polybot/polymarket-bot')
-os.chdir('/home/polybot/polymarket-bot/data')
+sys.path.insert(0, '.')
+os.chdir('./data')
 
 DEPLOY_TS = 1778785939
 
@@ -30,7 +30,7 @@ DEPLOY_TS = 1778785939
 # ============================================================
 print("Loading recaps...", file=sys.stderr)
 all_recaps = {}
-with open('/home/polybot/polymarket-bot/data/market_recap_history.jsonl') as f:
+with open('./data/market_recap_history.jsonl') as f:
     for line in f:
         try:
             d = json.loads(line)
@@ -132,7 +132,7 @@ def combined_rs_strategy(slug, ae, nm, blocked_set):
 # Scale (unit hypo → dollars). Compute from baseline pnl on a few markets.
 # ============================================================
 import importlib.util
-spec = importlib.util.spec_from_file_location('ie', '/home/polybot/polymarket-bot/induction_engine.py')
+spec = importlib.util.spec_from_file_location('ie', './induction_engine.py')
 ie = importlib.util.module_from_spec(spec)
 ie._ie_loaded = False
 try:

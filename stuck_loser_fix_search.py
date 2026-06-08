@@ -8,15 +8,15 @@ Test 3 honest options to fix stuck losers without killing big_wins:
 All evaluated TRAIN→TEST (1108 train, 112 test) with no future info.
 """
 import json, sys, os, statistics, math
-sys.path.insert(0, '/home/polybot/polymarket-bot')
-os.chdir('/home/polybot/polymarket-bot/data')
+sys.path.insert(0, '.')
+os.chdir('./data')
 
 DEPLOY_TS = 1778785939
 
 # Load
 print("Loading recaps...", file=sys.stderr)
 all_recaps = {}
-with open('/home/polybot/polymarket-bot/data/market_recap_history.jsonl') as f:
+with open('./data/market_recap_history.jsonl') as f:
     for line in f:
         try:
             d = json.loads(line)
@@ -87,7 +87,7 @@ tick_data = {}
 slugs_needed = set(all_recaps.keys())
 import time
 t0 = time.time()
-with open('/home/polybot/polymarket-bot/data/market_history.jsonl') as f:
+with open('./data/market_history.jsonl') as f:
     for line in f:
         if len(tick_data) >= len(slugs_needed): break
         try:

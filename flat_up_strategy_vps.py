@@ -13,7 +13,7 @@ for Bonferroni-corrected significance on compound signals.
 
 Usage:
     python3 flat_up_strategy_vps.py \\
-        --file /home/polybot/polymarket-bot/market_history.jsonl \\
+        --file ./market_history.jsonl \\
         --out flat_up_report.json
 """
 
