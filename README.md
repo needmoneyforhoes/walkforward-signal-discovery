@@ -42,3 +42,8 @@ python3 flat_up_strategy_vps.py --file $DATA_DIR/market_history.jsonl --out flat
 ## Data
 
 Reads `market_history.jsonl` (full per-tick book, 1GB+) and `market_recap_history.jsonl` (per-market fires, winners, `hypo_pnl`) from the private polymarket-data repo. Several scripts hard-code `./data`; point that at the checkout or override the path arguments where exposed. The `.jsonl`/`.json` files are git-ignored and never committed.
+
+## Feedback
+
+Suggestions, improvements, or something not working? Please
+[open an issue](https://github.com/needmoneyforhoes/walkforward-signal-discovery/issues/new). Pull requests are welcome too.
